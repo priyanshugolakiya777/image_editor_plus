@@ -163,7 +163,7 @@ class _MultiImageEditorState extends State<MultiImageEditor> {
                 onPressed: () async {
                   List<XFile>? selected = await picker.pickMultiImage();
 
-                  if (selected == null) return;
+                  if (selected == null) return setState(() {});
 
                   images.addAll(selected.map((e) => ImageItem(e)).toList());
                 },
@@ -175,7 +175,7 @@ class _MultiImageEditorState extends State<MultiImageEditor> {
                   var selected =
                       await picker.pickImage(source: ImageSource.camera);
 
-                  if (selected == null) return;
+                  if (selected == null) return setState(() {});
 
                   images.add(ImageItem(selected));
                 },
